@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.CategoryMapper">
+    <insert id="add" parameterType="pojo.Category">
+        insert into category(name)
+        values (#{name})
+    </insert>
+
+    <delete id="delete" parameterType="pojo.Category">
+        delete
+        from category
+        where id = #{id}
+    </delete>
+
+    <select id="get" parameterType="_int" resultType="pojo.Category">
+        select *
+        from category
+        where id = #{id}
+    </select>
+
+    <update id="update" parameterType="pojo.Category">
+        update category
+        set name=#{name}
+        where id = #{id}
+    </update>
+
+    <select id="list" resultType="pojo.Category">
+        select * from category
+<!--        <if test="start!=null and count!=null">-->
+<!--            limit #{start},#{count}-->
+<!--        </if>-->
+    </select>
+
+<!--    <select id="total" resultType="int">-->
+<!--        select count(*)-->
+<!--        from category-->
+<!--    </select>-->
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

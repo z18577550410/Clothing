@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.InformationMapper">
+    <select id="list" resultType="pojo.Information">
+        select * from information
+    </select>
+
+    <select id="get" parameterType="int" resultType="pojo.Information">
+        select *
+        from information
+        where uid = #{uid}
+    </select>
+
+    <select id="getInformation" parameterType="int" resultType="pojo.Information">
+        select *
+        from information
+        where id = #{id}
+    </select>
+
+    <insert id="add" parameterType="pojo.Information">
+        insert into information(uid,name,shippingAddress,mobilePhoneNumber)
+        values (#{uid},#{name},#{shippingAddress},#{mobilePhoneNumber})
+    </insert>
+
+    <delete id="delete" parameterType="int">
+        delete
+        from information
+        where id = #{id}
+    </delete>
+
+
+</mapper>

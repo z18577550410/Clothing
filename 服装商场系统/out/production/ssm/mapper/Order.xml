@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.OrderMapper">
+
+    <insert id="add" parameterType="pojo.Order" useGeneratedKeys="true" keyProperty="id">
+        insert into order_(uid,createDate,state,iid)
+        values (#{user.id},#{createDate},"未发货",#{iid})
+    </insert>
+
+    <select id="list" resultType="pojo.Order">
+        select * from order_
+    </select>
+
+    <select id="get" resultType="pojo.Order">
+        select * from order_ where uid=#{id}
+    </select>
+
+    <update id="update" parameterType="pojo.Order">
+        update order_
+        set state="已发货"
+        where id = #{id}
+    </update>
+
+
+</mapper>
+
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.ClothingMapper">
+
+    <select id="list" resultType="pojo.Clothing">
+        select * from clothing
+    </select>
+
+    <insert id="add" parameterType="pojo.Clothing">
+        insert into clothing(id,title,subtitle,color,size,price,pic)
+        values (null,#{title},#{subtitle},#{color},#{size},#{price},#{pic})
+    </insert>
+
+    <update id="update" parameterType="pojo.Clothing">
+        update clothing
+        set title=#{title},subtitle=#{subtitle},color=#{color},size=#{size},price=#{price},pic=#{pic}
+        where id = #{id}
+    </update>
+
+    <select id="get" parameterType="int" resultType="pojo.Clothing">
+        select *
+        from clothing
+        where id = #{id}
+    </select>
+
+    <delete id="delete"  parameterType="int">
+        delete
+        from clothing
+        where id = #{id}
+    </delete>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
